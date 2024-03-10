@@ -17,7 +17,6 @@ const jsonc = require('jsonc-parser').safe;
 
 const { runD2RMMTask, runD2STask } = require('./runner');
 const { fatal, nativePath, normalizePath, scriptPath, tryParseJSON, probeSavePath } = require('./utils');
-const { match } = require('node:assert');
 
 let forceDryRun = false, replaceConsole = true;
 
