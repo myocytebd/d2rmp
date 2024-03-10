@@ -4,5 +4,4 @@ set -u
 self_dir=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 
 clear
-time node ./main.js ./default.jsonc ./default_task.jsonc >log 2>&1
-# vim log
+time node ./main.js ./user_base.jsonc ./user_mp.jsonc >log 2>&1

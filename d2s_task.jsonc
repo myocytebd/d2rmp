@@ -6,7 +6,7 @@
     //   d2s.patch:   modify .d2s/.d2i and write-back.
     "mode": "d2s.migrate",
 
-    // d2s.*: optional, override save path in config file. Relative to current working dir.
+    // d2s.*: optional, override save path in config file. Relative to current working dir. Default: "$save" (D2R mod save path)
     // "path_override_save_path": "$save",
 
     // Selectively handle some .d2s/.d2i/.json files.
@@ -24,8 +24,9 @@
     // d2s.import/migrate: required. For some save data values that reference into .txt file, bind them to .txt file or treat them as raw values.
     // Unset or false means treating them as raw values.
     // itemstatcost is always bound by itemstatcost.Stat.
+    // !! Does not work for now.
     "bind_txt": {
-        "skills":       true,   // true: bind to skill name (skills.skill; unique key)
+        "skills":       false,  // true: bind to skill name (skills.skill; unique key)
         "mma":          false,  // true: bind to affix name (magicsuffix/magicprefix/automagic.Name; not unique key)
         "uniqueitems":  false,  // true: bind to unique item name (uniqueitems.index; not unique key)
         "setitems":     false,  // true: bind to set item name (setitems.index; not unique key?)
