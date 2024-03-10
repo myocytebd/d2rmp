@@ -16,7 +16,6 @@ const path = require('node:path');
 const vm = require('node:vm');
 
 const { SimD2RMM } = require('./d2rmm_api');
-const d2s_convert = require('./d2s_convert');
 const pp = require('./pp');
 const { FileResolver } = require('./resolver');
 const { fatal, readFileSyncNoThrow, writeFileSync, cpSync, renameSync, rmFilesSync, tryParseJSON, nativePath } = require('./utils');
@@ -280,6 +279,7 @@ function makeBestEffortResolver(config, excelDir) {
 
 /** @param {import('./main').RunConfig} config */
 async function runD2STask(config) {
+    const d2s_convert = require('./d2s_convert');
     const saveNameToFile = (baseName) => baseName.startsWith('SharedStash') ? `${baseName}.d2i` : `${baseName}.d2s`;
     const changeExtension = (baseName, newExt) => {
         let pathInfo = path.parse(baseName);
