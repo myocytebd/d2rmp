@@ -1,0 +1,46 @@
+{
+    // Task mode. (d2s.*: handle Character/Shared Stash save files)
+    //   d2s.export:  convert .d2s/.d2i to custom JSON
+    //   d2s.import:  convert custom JSON to .d2s/d2i
+    //   d2s.migrate: convert .d2s/.d2i between different .txt data (e.g. between itemstatcost.txt changes)
+    //   d2s.patch:   modify .d2s/.d2i and write-back.
+    "mode": "d2s.migrate",
+
+    // d2s.*: optional, override save path in config file. Relative to current working dir.
+    // "path_override_save_path": "$save",
+
+    // Selectively handle some .d2s/.d2i/.json files.
+    // d2s.export/import: optional. Default: all .d2i/.d2i files / all .json files under save dir.
+    // d2s.migrate/patch: optional. Any .d2s/.d2i/.json files. Also takes command-line arguments. Also accepts "*.d2s", "*.json".
+    "input_saves": [ "*.d2s" ],
+
+    // d2s.export/import: path to excel/.txt files. Relative to current working dir.
+    // d2s.migrate:       path to excel/.txt files to migrate the save file to. Relative to current working dir.
+    "path_excel_input_data": "$output/global/excel",  // Default: output path from config file
+
+    // d2s.migrate: path to excel/.txt files that the save file is generated with. Relative to current working dir.
+    "path_aux_excel_input_data": "$output/../data.global.excel.src",
+
+    // d2s.import/migrate: required. For some save data values that reference into .txt file, bind them to .txt file or treat them as raw values.
+    // Unset or false means treating them as raw values.
+    // itemstatcost is always bound by itemstatcost.Stat.
+    "bind_txt": {
+        "skills":       true,   // true: bind to skill name (skills.skill; unique key)
+        "mma":          false,  // true: bind to affix name (magicsuffix/magicprefix/automagic.Name; not unique key)
+        "uniqueitems":  false,  // true: bind to unique item name (uniqueitems.index; not unique key)
+        "setitems":     false,  // true: bind to set item name (setitems.index; not unique key?)
+        "sets":         false,  // true: bind to sets name (sets.index; not unique key?)
+        "itemtypes":    false,  // true: bind to itemtypes.ItemType (unreliable)
+        "runes":        false,  // true: bind to runes.Name (unreliable)
+        "wam":          false   // true: bind to weapons/armor/misc.name (unreliable)
+    },
+
+    // true: patch_job always takes effect; false: patch_job takes effect in d2s.patch mode.
+    // "always_patch": false,
+    "patch_jobs": {
+        "waypoints_all": true  // true: enable all waypoints in all difficulties
+    },
+
+    // Does not write or delete anything, instead print the operation.
+    "dry_run": false
+}

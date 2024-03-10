@@ -1,0 +1,23 @@
+{
+    "d2rmm_path": "..",
+    "save_path": "",  // modinfo.json - savepath. Default = <MOD-NAME>/
+
+    // Path can mix '/' and '\'. Relative to current working dir.
+    // Below path configs override D2RMM settings if set to non-empty value.
+    // If some files exists in both input_data and aux_input_data, files under aux_input_data take precedance.
+    // So put customized data under aux_input_data, and stock/original files under input_data. (input_data/aux_input_data can be same)
+    "path_override_d2r_game": "../..",
+    "path_override_output_data": "",  // Default: <D2R>/mods/<MOD>/<MOD>.mpq/
+    "path_override_input_data": "../../mods/data.input/data",  // Default: D2RMM's "Pre-Extracted Data"
+    "path_user_input_data": "../../d2r/mods/data.override",
+    // Path for loading external js to replace '#pragma lib' content. Relative to project folder (main.js).
+    "path_extern_libjs": "extern",
+
+    // Fix up D2RMM config.json by adding missing/default entry values, and prettify it.
+    "d2rmm_config_completion": true,
+
+    // Debugging/Logging Options
+    "log_level": "debug", // error, warn, info, log, debug
+    // Does not write or delete anything, instead print the operation.
+    "dry_run": false
+}

@@ -1,0 +1,28 @@
+{
+    // Task mode. (default=d2rmm: simulate D2RMM mod scripts environment)
+    "mode": "d2rmm",
+
+    // Override mods list in D2RMM, ordered. (Comment out to disable override)
+    // "override_ordered_mods": [ "User.CharacterCustomization", "User.CharacterSkin" ],
+    // Exclude mods from in D2RMM mods list. (Set empty or comment out to disable excludes)
+    /* "exclude_mods": [
+        // "User.ReduceLevelRequirement",
+        "User.PatchItemStatCost",
+        "User.ItemsCustomization",
+        "User.ExtraCubeRecipes",
+        "User.SimulateRuneWordsInAll",
+        "User.CharacterCustomization",
+        "User.CharacterSkin"
+    ], */
+    // Include mods. (Set empty or comment out to disable includes) (Lower priority than exclude_mods)
+    "include_mods": [ "User.CharacterSkin" ],
+    // Delete all files under output directory (leaving directories). (default=true for dr2mm)
+    "clean_output_dir": true,
+
+    // Always copy files under path_user_input_data, even if no D2RMM mods write them.
+    // So that non-D2RMM modded files can be carried over to game mod dir.
+    "output_copy_user_input_files": false,
+
+    // Does not write or delete anything, instead print the operation.
+    "dry_run": false
+}

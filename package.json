@@ -1,0 +1,19 @@
+{
+  "name": "script.runner",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "GPL-3.0-or-later",
+  "dependencies": {
+    "@stdlib/utils-convert-path": "^0.2.1",
+    "console-stamp": "^3.1.2",
+    "json-stringify-pretty-compact": "^3.0.0",
+    "jsonc-parser": "^3.2.1",
+    "level": "^8.0.1",
+    "microdiff": "^1.3.2"
+  }
+}
