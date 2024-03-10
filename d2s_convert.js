@@ -52,16 +52,17 @@ class ConvertContxt {
 
 // Check that exported JSON data can import to same d2s exactly.
 async function checkExportRoundTripStrict(json, refSave, context) {
+    let name = json.type === 'd2s' ? json.header.name: 'SharedStash';
     let newSave = await fromJSONEx(json, context, { selfCheck: false });
-    if (diffBufferToConsole(refSave, newSave, { desc: 'checkJSONStringifyRoundTrip', diffOnSizeMismatch: true }) !== 0)
+    if (diffBufferToConsole(refSave, newSave, { desc: `checkJSONStringifyRoundTrip-${name}`, diffOnSizeMismatch: true }) !== 0)
         throw new Error(`Check Failure: d2s => JSON => d2s roundtrip`);
 }
 
 // Check that JSON data can be safely stringified.
 function checkJSONSSerializeRoundTrip(json, context) {
-    let jsonNew;
+    let name = json.type === 'd2s' ? json.header.name: 'SharedStash', jsonNew;
     assert.doesNotThrow(() => jsonNew = JSON.parse(JSON.stringify(json)), `Save export data is unserializable`);
-    if (diffObjectToConsole(json, jsonNew, { desc: 'checkJSONSSerializeRoundTrip' }) !== 0) {
+    if (diffObjectToConsole(json, jsonNew, { desc: `checkJSONSSerializeRoundTrip-${name}` }) !== 0) {
         throw new Error(`Check Failure: JSON serialization roundtrip`);
     }
 }

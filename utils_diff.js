@@ -12,6 +12,11 @@
 
 const microdiff = require('microdiff').default;
 
+function toHex(ivalue) {
+    let sign = Math.sign(ivalue), ustr = Math.abs(ivalue).toString(16);
+    return `${sign < 0 ? '-' : ''}0x${ustr.padStart((ustr.length + 1) & -2, '0')}`;
+}
+
 /** @param {Uint8Array} buf0  @param {Uint8Array} buf1  @param { desc?: string, maxDiffCount?: number, diffOnSizeMismatch?: boolean } */
 function diffBufferToConsole(buf0, buf1, { desc, maxDiffCount, diffOnSizeMismatch } = { desc: 'unnamed-buffer', maxDiffCount: 10, diffOnSizeMismatch: false }) {
     if (Buffer.compare(buf0, buf1) === 0) return 0;

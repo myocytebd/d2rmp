@@ -298,12 +298,12 @@ async function runD2STask(config) {
         if (inputFiles.length === 0) filterExt = config.task.mode === 'd2s.export' ? '.d2s' : '.json';
     } else {
         inputFiles.push(...config.argv);
-        if (inputFiles.length === 1) {
-            if ([ '.d2s', '*.d2s' ].includes(inputFiles[0])) {
-                filterExt = '.d2s';
-            } else if ([ '.json', '*.json' ].includes(inputFiles[0])) {
-                filterExt = '.json';
-            }
+    }
+    if (inputFiles.length === 1) {
+        if ([ '.d2s', '*.d2s' ].includes(inputFiles[0])) {
+            filterExt = '.d2s';
+        } else if ([ '.json', '*.json' ].includes(inputFiles[0])) {
+            filterExt = '.json';
         }
     }
     if (filterExt) {
