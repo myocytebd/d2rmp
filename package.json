@@ -1,12 +1,12 @@
 {
-  "name": "script.runner",
-  "version": "1.0.0",
-  "description": "",
+  "name": "d2rmp",
+  "version": "0.5.0",
+  "description": "Patcher script toolset for D2R mods.",
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "myocytebd",
   "license": "GPL-3.0-or-later",
   "dependencies": {
     "@stdlib/utils-convert-path": "^0.2.1",
